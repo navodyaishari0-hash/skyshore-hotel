@@ -28,7 +28,7 @@ const timeline = [
   { year: '2016', title: 'Founded', description: 'Skyshore opens its doors amid the misty highlands of Sri Lanka.' },
   { year: '2019', title: 'Kabana Expansion', description: 'Two exclusive nature kabanas — The Woods & The Creek — are completed.' },
   { year: '2021', title: 'Sustainability Award', description: 'Recognized for regenerative eco-luxury and rainforest guardianship.' },
-  { year: '2023', title: 'Signature Cuisine', description: 'Our in-villa dining concept earns acclaim from international food critics.' },
+  { year: '2023', title: 'Guest Kitchen', description: 'The guest kitchen opens for guests who prefer to cook their own meals.' },
   { year: '2024', title: 'AI Concierge', description: 'Launch of a private, AI-powered concierge for every stay.' },
   { year: '2026', title: 'The Serendib Way', description: 'A model of slow, intimate luxury — two kabanas, one unforgettable island.' },
 ];
@@ -38,7 +38,6 @@ const awards = [
   { year: '2023', title: 'Sustainable Hideaway', org: 'Green Globe' },
   { year: '2023', title: 'Intimate Escapes', org: 'Condé Nast Traveler' },
   { year: '2022', title: 'Island Retreat of the Year', org: 'Travel + Leisure' },
-  { year: '2022', title: 'In-Villa Dining Excellence', org: 'Sri Lanka Culinary Guild' },
   { year: '2021', title: 'Guardians of the Highlands', org: 'Rainforest Alliance' },
   { year: '2021', title: 'Excellence in Service', org: 'Forbes Travel Guide' },
   { year: '2020', title: 'Hidden Gem of Serendib', org: 'Lonely Planet' },
@@ -55,7 +54,7 @@ const stats = [
   { value: 10, suffix: '+', label: 'Years of Excellence' },
   { value: 98, suffix: '%', label: 'Guest Satisfaction' },
   { value: 2, suffix: '', label: 'Exclusive Nature Kabanas' },
-  { value: 120, suffix: '+', label: 'Culinary & Service Awards' },
+  { value: 120, suffix: '+', label: 'Five-Star Guest Reviews' },
 ];
 
 const socialIcons: Record<string, React.ElementType> = { twitter: MessageCircle, linkedin: Link2, instagram: Camera };
@@ -141,9 +140,9 @@ export default function AboutPage() {
             className="text-gray-600 text-lg leading-relaxed"
           >
             Today, Skyshore stands as a beacon of unhurried hospitality — a place where every sunrise
-            promises wonder, every in-villa meal tells the story of the island&apos;s terroir, and every guest
-            becomes part of our extended family. There is no restaurant, no grand spa, no crowds — only
-            private dining served to you on your balcony and the sounds of the forest. Through a decade of
+            promises wonder, every guest becomes part of our extended family, and every stay moves at
+            your own pace. There is no restaurant, no grand spa and no crowds — only the guest kitchen
+            for cooking your own meals, your private deck and the sounds of the forest. Through a decade of
             quiet pursuit of perfection, our heart remains as warm as it was on day one.
           </motion.p>
         </div>

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import {
-  UtensilsCrossed,
+  ChefHat,
   Coffee,
   Users,
   Leaf,
@@ -11,6 +11,7 @@ import {
   CheckCircle,
   Phone,
   CalendarDays,
+  ShoppingBasket,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
@@ -18,63 +19,68 @@ import Select from '@/components/ui/Select';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Badge from '@/components/ui/Badge';
 
-const restaurants = [
+const kitchenIntro = [
   {
-    name: 'Dining at Skyshore',
-    type: 'Dining enquiry',
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&h=700&fit=crop',
-    description: 'Ask about Sri Lankan cuisine, fresh tropical fruit, seafood, breakfast, tea, coffee and international options. Current menus and service availability are confirmed by the host.',
+    name: 'The guest kitchen',
+    type: 'Shared kitchen',
+    image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200&h=700&fit=crop',
+    description:
+      'Skyshore does not run a restaurant and does not prepare or serve meals. Guests are welcome to use the kitchen to cook their own breakfast, lunch and dinner whenever they like.',
   },
 ];
 
-const menuCategories = ['Appetizers', 'Mains', 'Desserts', 'Drinks'] as const;
-type MenuCategory = (typeof menuCategories)[number];
+const kitchenCategories = ['Cooking', 'Storing', 'Preparing', 'Serving'] as const;
+type KitchenCategory = (typeof kitchenCategories)[number];
 
-const menuItems: Record<MenuCategory, { name: string; description: string; price: number; dietary: string[] }[]> = {
-  Appetizers: [
-    { name: 'Seared Foie Gras', description: 'With brioche toast, fig compote, and aged balsamic reduction', price: 38, dietary: [] },
-    { name: 'Tuna Tartare', description: 'Sushi-grade tuna, avocado mousse, sesame crisp, wasabi aioli', price: 32, dietary: ['GF'] },
-    { name: 'Burrata Caprese', description: 'Heirloom tomatoes, fresh basil, aged balsamic pearls, extra virgin olive oil', price: 26, dietary: ['V', 'GF'] },
-    { name: 'Lobster Bisque', description: 'Creamy bisque with cognac foam, lobster claw, and chive oil', price: 28, dietary: [] },
+const kitchenItems: Record<KitchenCategory, { name: string; description: string }[]> = {
+  Cooking: [
+    { name: 'Cooktop & pans', description: 'A cooking area with basic pots and pans for everyday meals.' },
+    { name: 'Kettle', description: 'Boil water for tea, coffee or instant meals.' },
+    { name: 'Everyday cooking gear', description: 'Basic utensils for preparing simple breakfasts, curries and pasta.' },
+    { name: 'Ask the host', description: 'Exact appliances and equipment are confirmed by the host before your stay.' },
   ],
-  Mains: [
-    { name: 'Wagyu Ribeye', description: 'A5 Japanese Wagyu, truffle mashed potato, roasted bone marrow, red wine jus', price: 120, dietary: ['GF'] },
-    { name: 'Pan-Seared Sea Bass', description: 'Chilean sea bass, saffron risotto, cherry tomatoes, basil pesto', price: 68, dietary: ['GF'] },
-    { name: 'Herb-Crusted Rack of Lamb', description: 'New Zealand lamb, rosemary jus, gratin dauphinois, seasonal vegetables', price: 85, dietary: ['GF'] },
-    { name: 'Wild Mushroom Risotto', description: 'Arborio rice, porcini, truffle oil, shaved Parmigiano-Reggiano', price: 42, dietary: ['V', 'GF'] },
+  Storing: [
+    { name: 'Refrigerator space', description: 'Keep fresh produce, drinks and leftovers cool.' },
+    { name: 'Cupboard space', description: 'Store dry ingredients, snacks and tea and coffee.' },
+    { name: 'Shopping nearby', description: 'Buy fruit, vegetables, fish, eggs, bread and spices in Tangalle.' },
+    { name: 'Ask the host', description: 'Ask where to shop for the ingredients you need during your stay.' },
   ],
-  Desserts: [
-    { name: 'Chocolate Soufflé', description: 'Grand Marnier chocolate soufflé with vanilla bean ice cream', price: 24, dietary: ['V'] },
-    { name: 'Crème Brûlée', description: 'Tahitian vanilla custard with caramelized sugar crust and berries', price: 18, dietary: ['V', 'GF'] },
-    { name: 'Tarte Tatin', description: 'Caramelized apple tart, Calvados cream, salted caramel drizzle', price: 22, dietary: ['V'] },
-    { name: 'Panna Cotta', description: 'Coconut panna cotta, passion fruit coulis, toasted macadamia', price: 20, dietary: ['V', 'GF'] },
+  Preparing: [
+    { name: 'Prep surface', description: 'A clear worktop for chopping fruit and preparing ingredients.' },
+    { name: 'Sink & wash-up', description: 'Wash produce, dishes and cooking equipment after use.' },
+    { name: 'Crockery & cutlery', description: 'Plates, bowls, cups and cutlery for guests staying at the property.' },
+    { name: 'Ask the host', description: 'Confirm what is provided so you know what to bring or buy.' },
   ],
-  Drinks: [
-    { name: 'Azure Sunset', description: 'Grey Goose vodka, elderflower, passion fruit, champagne float', price: 22, dietary: [] },
-    { name: 'Golden Hour', description: 'Aged rum, turmeric honey, fresh ginger, sparkling water', price: 18, dietary: [] },
-    { name: 'Lavender Martini', description: 'Hendricks gin, lavender syrup, fresh lemon, egg white foam', price: 20, dietary: [] },
-    { name: 'Mojito Royale', description: 'Bacardi, fresh mint, lime, prosecco, edible gold leaf', price: 19, dietary: [] },
+  Serving: [
+    { name: 'Dining table', description: 'A simple place to eat together inside the kitchen area.' },
+    { name: 'Private deck', description: 'Carry your meal outside and eat in the garden or on your deck.' },
+    { name: 'Tea & coffee', description: 'Make a hot drink whenever you like — there are no fixed dining times.' },
+    { name: 'Ask the host', description: 'Ask about outdoor seating and the best spots for an evening meal.' },
   ],
 };
 
-const dietaryLabels: Record<string, { label: string; color: string }> = {
-  V: { label: 'Vegetarian', color: 'bg-emerald-100 text-emerald-700' },
-  VG: { label: 'Vegan', color: 'bg-green-100 text-green-700' },
-  GF: { label: 'Gluten-Free', color: 'bg-amber-100 text-amber-700' },
-  DF: { label: 'Dairy-Free', color: 'bg-blue-100 text-blue-700' },
-};
-
-const diningNotes = [
-  { title: 'Sri Lankan flavours', description: 'Ask about the dishes currently available during your stay.' },
-  { title: 'Island ingredients', description: 'Fresh fruit, seafood and local ingredients can be discussed with the host.' },
-  { title: 'Your preferences', description: 'Share dietary needs and preferred dining times with your enquiry.' },
+const selfCateringNotes = [
+  {
+    icon: ShoppingBasket,
+    title: 'Buy local',
+    description:
+      'Pick up fresh produce, fish, eggs, bread and spices from shops and markets around Tangalle.',
+  },
+  {
+    icon: ChefHat,
+    title: 'Cook your way',
+    description:
+      'Use the guest kitchen to prepare breakfast, lunch, dinner or a late-night snack — there is no set menu.',
+  },
+  {
+    icon: Coffee,
+    title: 'Keep it simple',
+    description:
+      'Tea and coffee can be made in the kitchen. Ask the host where to buy the ingredients you need.',
+  },
 ];
 
-const timeOptions = [
-  { label: 'Confirm with host', value: 'confirm' },
-];
-
-const partySizeOptions = [
+const guestOptions = [
   { label: '1 Guest', value: '1' },
   { label: '2 Guests', value: '2' },
   { label: '3 Guests', value: '3' },
@@ -85,14 +91,14 @@ const partySizeOptions = [
 ];
 
 const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop', title: 'Gourmet Plating' },
-  { src: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=400&fit=crop', title: 'Breakfast Spread' },
-  { src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop', title: 'Artisan Pizza' },
+  { src: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=400&fit=crop', title: 'Guest Kitchen' },
+  { src: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=400&fit=crop', title: 'Local Market Produce' },
+  { src: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=400&fit=crop', title: 'Breakfast You Make' },
   { src: 'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=400&fit=crop', title: 'Fresh Salad' },
-  { src: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&h=400&fit=crop', title: 'Pastry Display' },
-  { src: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&h=400&fit=crop', title: 'Signature Burger' },
-  { src: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&h=400&fit=crop', title: 'Pasta Perfection' },
-  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop', title: 'Fine Dining' },
+  { src: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&h=400&fit=crop', title: 'Local Bakery Finds' },
+  { src: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&h=400&fit=crop', title: 'Simple Home Cooking' },
+  { src: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&h=400&fit=crop', title: 'Pasta Night' },
+  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop', title: 'Meal on the Deck' },
 ];
 
 const fadeUp: Variants = {
@@ -101,8 +107,8 @@ const fadeUp: Variants = {
 };
 
 export default function RestaurantPage() {
-  const [activeCategory, setActiveCategory] = useState<MenuCategory>('Appetizers');
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', date: '', time: '', party: '', requests: '' });
+  const [activeCategory, setActiveCategory] = useState<KitchenCategory>('Cooking');
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', date: '', guests: '', requests: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -113,8 +119,7 @@ export default function RestaurantPage() {
     if (!formData.email.trim()) errs.email = 'Email is required';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errs.email = 'Invalid email';
     if (!formData.date) errs.date = 'Select a date';
-    if (!formData.time) errs.time = 'Select a time';
-    if (!formData.party) errs.party = 'Select party size';
+    if (!formData.guests) errs.guests = 'Select number of guests';
     setErrors(errs);
     return Object.keys(errs).length === 0;
   }
@@ -134,31 +139,31 @@ export default function RestaurantPage() {
       <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=800&fit=crop)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1920&h=800&fit=crop)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-luxury/60 via-luxury/40 to-luxury/80" />
         <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <p className="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-4">Sri Lankan dining</p>
-            <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-4">A taste of the island</h1>
+            <p className="text-primary font-medium tracking-[0.3em] uppercase text-sm mb-4">Self-catering kitchen</p>
+            <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-4">Your own kitchen in the tropics</h1>
             <p className="text-cream/80 text-lg max-w-2xl mx-auto mt-4">
-              Ask about traditional dishes, tropical fruit, seafood and familiar favourites.
+              There is no restaurant and no meal service at Skyshore. Guests have use of a kitchen to cook for themselves.
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6" />
           </motion.div>
         </div>
       </section>
 
-      {/* Restaurants */}
+      {/* Kitchen intro */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <SectionHeader
-            title="Dining at Skyshore"
-            subtitle="Menu details and dining availability are confirmed directly with your host."
+            title="Cook it yourself"
+            subtitle="A practical guest kitchen — no restaurant, no set menu and no fixed dining times."
             centered
           />
           <div className="mx-auto max-w-4xl">
-            {restaurants.map((r, i) => (
+            {kitchenIntro.map((r, i) => (
               <motion.div
                 key={r.name}
                 custom={i}
@@ -169,7 +174,7 @@ export default function RestaurantPage() {
                 className="group overflow-hidden border border-[#E5E0D5] bg-white"
               >
                 <div className="relative h-56 overflow-hidden">
-                  <img src={r.image} alt="Sri Lankan-inspired dishes and tropical ingredients" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  <img src={r.image} alt="A kitchen available for guests to cook their own meals" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-luxury/80 to-transparent" />
                   <Badge variant="gold" className="absolute top-4 left-4">{r.type}</Badge>
                 </div>
@@ -178,7 +183,7 @@ export default function RestaurantPage() {
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">{r.description}</p>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Leaf className="w-4 h-4 text-primary" />
-                    <span>Confirm menu and service availability with the host</span>
+                    <span>Ask the host about kitchen access and what is provided</span>
                   </div>
                 </div>
               </motion.div>
@@ -187,17 +192,17 @@ export default function RestaurantPage() {
         </div>
       </section>
 
-      {/* Interactive Menu */}
+      {/* Interactive kitchen guide */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <SectionHeader
-            title="Menu inspiration"
-            subtitle="Example dishes only. Current items, prices and availability must be confirmed with the host."
+            title="What to expect in the kitchen"
+            subtitle="A general guide only. Ask the host to confirm the exact equipment before you shop."
             centered
           />
           <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-cream rounded-full p-1.5 gap-1">
-              {menuCategories.map((cat) => (
+            <div className="inline-flex flex-wrap justify-center bg-cream rounded-full p-1.5 gap-1">
+              {kitchenCategories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
@@ -226,7 +231,7 @@ export default function RestaurantPage() {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
-              {menuItems[activeCategory].map((item, idx) => (
+              {kitchenItems[activeCategory].map((item, idx) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, y: 20 }}
@@ -239,15 +244,6 @@ export default function RestaurantPage() {
                       {item.name}
                     </h4>
                     <p className="text-gray-500 text-sm mt-1 leading-relaxed">{item.description}</p>
-                    {item.dietary.length > 0 && (
-                      <div className="flex gap-2 mt-2">
-                        {item.dietary.map((d) => (
-                          <span key={d} className={`text-xs px-2 py-0.5 rounded-full font-semibold ${dietaryLabels[d]?.color || 'bg-gray-100 text-gray-600'}`}>
-                            {dietaryLabels[d]?.label || d}
-                          </span>
-                        ))}
-                      </div>
-                    )}
                   </div>
                   <span className="text-primary font-semibold text-xs whitespace-nowrap">Ask host</span>
                 </motion.div>
@@ -257,12 +253,12 @@ export default function RestaurantPage() {
         </div>
       </section>
 
-      {/* Dining preferences */}
+      {/* Self-catering notes */}
       <section className="py-20 px-4 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader title="Make it your own" subtitle="Share your preferences and ask what is available during your stay." centered light />
+          <SectionHeader title="Make it your own" subtitle="Shop locally, cook what you like and eat whenever you are hungry." centered light />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {diningNotes.map((note, i) => (
+            {selfCateringNotes.map((note, i) => (
               <motion.div
                 key={note.title}
                 custom={i}
@@ -273,7 +269,7 @@ export default function RestaurantPage() {
                 className="text-center group"
               >
                 <div className="w-14 h-14 bg-white/5 flex items-center justify-center mx-auto mb-5 border border-primary/30">
-                  {i === 0 ? <UtensilsCrossed className="w-6 h-6 text-primary" /> : i === 1 ? <Leaf className="w-6 h-6 text-primary" /> : <Coffee className="w-6 h-6 text-primary" />}
+                  <note.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-playfair text-xl font-medium text-white mb-2">{note.title}</h3>
                 <p className="text-white/60 text-sm leading-relaxed">{note.description}</p>
@@ -283,13 +279,13 @@ export default function RestaurantPage() {
         </div>
       </section>
 
-      {/* Reservation Form */}
+      {/* Kitchen enquiry form */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader title="Reserve Your Table" subtitle="Secure an unforgettable dining experience" centered />
+          <SectionHeader title="Ask about the kitchen" subtitle="Check access, equipment or shopping nearby before your stay" centered />
           <p className="mx-auto mb-6 max-w-xl rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-center text-xs leading-5 text-amber-800">
-            Demo form: no reservation is created and no email is sent. Please
-            contact the host on WhatsApp at +94 77 396 4515 to book a table.
+            Demo form: no enquiry is sent and no email is created. Please contact
+            the host on WhatsApp at +94 77 396 4515 with your kitchen questions.
           </p>
           <AnimatePresence mode="wait">
             {isSubmitted ? (
@@ -301,9 +297,9 @@ export default function RestaurantPage() {
               >
                 <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
                 <h3 className="font-playfair text-2xl font-bold text-luxury mb-2">Demo form complete</h3>
-                <p className="text-gray-500">No reservation was created and no email was sent. Please contact the host directly to confirm a table.</p>
-                <Button variant="ghost" className="mt-6" onClick={() => { setIsSubmitted(false); setFormData({ name: '', email: '', phone: '', date: '', time: '', party: '', requests: '' }); }}>
-                  Make Another Reservation
+                <p className="text-gray-500">No enquiry was sent and no email was created. Please contact the host on WhatsApp to ask about the kitchen.</p>
+                <Button variant="ghost" className="mt-6" onClick={() => { setIsSubmitted(false); setFormData({ name: '', email: '', phone: '', date: '', guests: '', requests: '' }); }}>
+                  Ask Another Question
                 </Button>
               </motion.div>
             ) : (
@@ -340,7 +336,7 @@ export default function RestaurantPage() {
                     icon={<Phone className="w-4 h-4" />}
                   />
                   <Input
-                    label="Date"
+                    label="Arrival Date"
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
@@ -348,37 +344,26 @@ export default function RestaurantPage() {
                     icon={<CalendarDays className="w-4 h-4" />}
                   />
                   <Select
-                    options={timeOptions}
-                    value={formData.time}
-                    onChange={(v) => setFormData({ ...formData, time: v })}
-                    placeholder="Select time"
-                    label="Time"
-                    error={errors.time}
+                    options={guestOptions}
+                    value={formData.guests}
+                    onChange={(v) => setFormData({ ...formData, guests: v })}
+                    placeholder="Select guests"
+                    label="Guests"
+                    error={errors.guests}
                   />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                  <Select
-                    options={partySizeOptions}
-                    value={formData.party}
-                    onChange={(v) => setFormData({ ...formData, party: v })}
-                    placeholder="Party size"
-                    label="Party Size"
-                    error={errors.party}
-                  />
-                  <div />
                 </div>
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-secondary mb-1.5">Special Requests</label>
+                  <label className="block text-sm font-medium text-secondary mb-1.5">Your Questions</label>
                   <textarea
                     rows={3}
                     value={formData.requests}
                     onChange={(e) => setFormData({ ...formData, requests: e.target.value })}
                     className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-luxury outline-none transition-all duration-300 focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
-                    placeholder="Dietary requirements, occasion, seating preference..."
+                    placeholder="Kitchen access, equipment, nearby shops, dietary needs..."
                   />
                 </div>
-                <Button type="submit" isLoading={isSubmitting} size="lg" fullWidth leftIcon={<UtensilsCrossed className="w-5 h-5" />}>
-                  Reserve Table
+                <Button type="submit" isLoading={isSubmitting} size="lg" fullWidth leftIcon={<ChefHat className="w-5 h-5" />}>
+                  Send Kitchen Question
                 </Button>
               </motion.form>
             )}
@@ -386,10 +371,10 @@ export default function RestaurantPage() {
         </div>
       </section>
 
-      {/* Food Gallery */}
+      {/* Kitchen gallery */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader title="Food Gallery" subtitle="A feast for the eyes before the feast for the palate" centered />
+          <SectionHeader title="Kitchen & Market Gallery" subtitle="Local ingredients, the guest kitchen and meals you make yourself" centered />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryImages.map((img, i) => (
               <motion.div

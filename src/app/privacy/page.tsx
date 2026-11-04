@@ -16,7 +16,7 @@ const sections = [
   },
   {
     heading: 'Information you enter',
-    body: 'Booking, dining, spa and contact forms on this site run entirely in your browser. Submitting a form does not send your details to the host or to any third party, and no reservation or message is created.',
+    body: 'Booking, kitchen, spa and contact forms on this site run entirely in your browser. Submitting a form does not send your details to the host or to any third party, and no reservation or message is created.',
   },
   {
     heading: 'Browser storage',

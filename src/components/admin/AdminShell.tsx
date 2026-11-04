@@ -31,7 +31,7 @@ const navSections = [
   {
     label: 'SERVICES',
     items: [
-      { name: 'Restaurant', href: '/restaurant', icon: UtensilsCrossed },
+      { name: 'Kitchen', href: '/restaurant', icon: UtensilsCrossed },
       { name: 'Spa', href: '/spa', icon: Flower2 },
       { name: 'Events', href: '/events', icon: PartyPopper },
     ],

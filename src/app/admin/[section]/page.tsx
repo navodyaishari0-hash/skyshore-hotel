@@ -22,8 +22,8 @@ const sections: Record<string, { name: string; description: string }> = {
     description: 'Team members, roles and schedules.',
   },
   restaurant: {
-    name: 'Restaurant',
-    description: 'Dining reservations, menus and service notes.',
+    name: 'Kitchen',
+    description: 'Guest kitchen access, equipment notes and self-catering information.',
   },
   spa: {
     name: 'Spa',

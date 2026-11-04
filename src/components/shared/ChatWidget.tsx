@@ -23,9 +23,11 @@ const KEYWORD_RESPONSES: Record<string, string> = {
   facility: `Facilities and amenities are being confirmed. Please contact the host with the details you would like to check.`,
   facilit: `Facilities and amenities are being confirmed. Please contact the host with the details you would like to check.`,
   contact: `Contact Skyshore on WhatsApp at +94 77 396 4515 or by email at dishanrandika0@gmail.com.`,
-  restaurant: `Dining style, menu and service availability are confirmed by the host. Ask us about Sri Lankan cuisine, fresh produce, seafood, breakfast, tea and coffee.`,
-  meal: `Menu details are not confirmed yet. Contact the host to ask about Sri Lankan dishes, breakfast, seafood and other options.`,
-  breakfast: `Breakfast availability and menu details are confirmed by the host. Please contact us with your dates and preferences.`,
+  restaurant: `Skyshore does not have a restaurant and does not prepare meals. Guests can use the kitchen to cook for themselves. Ask the host about kitchen access and what equipment is provided.`,
+  meal: `Meals are not prepared for guests. A kitchen is available if you would like to cook; ask the host about access and nearby shops.`,
+  breakfast: `Breakfast is not served, but you are welcome to prepare your own in the guest kitchen. Ask the host what is provided.`,
+  kitchen: `A kitchen is available for guests to cook their own meals. Skyshore does not run a restaurant or serve food. Ask the host about access, equipment and shopping nearby.`,
+  cook: `You are welcome to cook in the guest kitchen during your stay. Ask the host what equipment is provided and where to buy local ingredients.`,
   price: `Current villa rates are confirmed directly by the host. Send your preferred dates through the booking form to request a quote.`,
   checkout: `Check-in and check-out times are confirmed with each reservation. Please contact the host before planning your arrival.`,
   experience: `Local experiences, travel times and availability depend on your dates and location. Ask the host about beaches, nature, culture and local tours.`,
@@ -34,7 +36,7 @@ const KEYWORD_RESPONSES: Record<string, string> = {
   transfer: `Airport transfer availability and journey time are confirmed directly with the host. Please share your arrival details using the contact form.`,
 };
 
-const suggestions = ['Find a villa', 'Check availability', 'Facilities', 'Nearby places', 'Dining', 'Airport transfer', 'Contact reception'];
+const suggestions = ['Find a villa', 'Check availability', 'Facilities', 'Nearby places', 'Kitchen', 'Airport transfer', 'Contact reception'];
 
 const DEFAULT_RESPONSE =
   "Thank you for your question! Our hosts will be happy to assist you. Reach us on WhatsApp at +94 77 396 4515 or use the contact form on our website.";

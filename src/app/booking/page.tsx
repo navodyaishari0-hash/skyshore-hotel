@@ -224,7 +224,7 @@ export default function BookingPage() {
                         rows={3}
                         value={guestDetails.specialRequests}
                         onChange={(e) => setGuestDetails({ ...guestDetails, specialRequests: e.target.value })}
-                        placeholder="Dietary needs, arrival notes, celebration or accessibility requests..."
+                        placeholder="Kitchen questions, arrival notes, celebration or accessibility requests..."
                         className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-luxury outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
                       />
                     </div>
@@ -238,7 +238,7 @@ export default function BookingPage() {
                     <h2 className="mb-3 font-playfair text-3xl font-medium text-luxury">Anything we should know?</h2>
                     <p className="mb-6 text-sm text-gray-500">These are requests only, not confirmed services. Your host will follow up about availability.</p>
                     <div className="grid gap-3 sm:grid-cols-2">
-                      {['Airport transfer enquiry', 'Honeymoon or celebration', 'Dining and dietary preferences', 'Wellness options enquiry'].map((request) => (
+                      {['Airport transfer enquiry', 'Honeymoon or celebration', 'Kitchen access & self-catering', 'Wellness options enquiry'].map((request) => (
                         <label key={request} className="flex cursor-pointer items-start gap-3 border border-[#E4DED1] bg-white p-4 text-sm text-luxury">
                           <input
                             type="checkbox"

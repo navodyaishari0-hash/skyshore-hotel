@@ -46,7 +46,7 @@ const mockReviews: Review[] = [
     roomId: 'room-1',
     rating: 4,
     comment:
-      'Elegant room with top-notch facilities. The room service was prompt and the food quality was outstanding. Would love to come back during the off-season for a quieter experience.',
+      'Elegant room with top-notch facilities. The guest kitchen was clean and easy to use, and the deck was perfect for meals we cooked ourselves. Would love to come back during the off-season for a quieter experience.',
     createdAt: '2026-03-18',
   },
   {
@@ -55,7 +55,7 @@ const mockReviews: Review[] = [
     roomId: 'room-1',
     rating: 5,
     comment:
-      'The best hotel experience of my life. Every single detail has been thoughtfully curated. The spa was heavenly, the dining was world-class, and the staff made us feel like royalty.',
+      'The best hotel experience of my life. Every single detail has been thoughtfully curated. The setting was heavenly, the guest kitchen made the stay easy, and the staff made us feel like royalty.',
     createdAt: '2026-02-05',
   },
   {
@@ -64,7 +64,7 @@ const mockReviews: Review[] = [
     roomId: 'room-1',
     rating: 5,
     comment:
-      'From the moment we arrived, we were enchanted. The room decor is exquisite, the views are unmatched, and the butler service is worth every penny. A true masterpiece of hospitality.',
+      'From the moment we arrived, we were enchanted. The room decor is exquisite, the views are unmatched, and the host support is worth every penny. A true masterpiece of hospitality.',
     createdAt: '2026-01-20',
   },
 ];

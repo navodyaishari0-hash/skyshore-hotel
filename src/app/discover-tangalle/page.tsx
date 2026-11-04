@@ -104,7 +104,11 @@ export default function DiscoverTangallePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#D7C49A]">Flavours of the coast</p>
-            <h2 className="font-playfair text-4xl font-medium md:text-5xl">Taste Sri Lanka with every meal</h2>
+            <h2 className="font-playfair text-4xl font-medium md:text-5xl">Taste Sri Lanka at your own table</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/70">
+              Skyshore does not serve meals. A guest kitchen is available if you would like to cook,
+              and local markets and eateries around Tangalle are a good place to start.
+            </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

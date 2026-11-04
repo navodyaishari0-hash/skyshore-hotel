@@ -7,7 +7,7 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
 import Lightbox from '@/components/shared/Lightbox';
 
-const categories = ['All', 'Kabanas', 'Dining', 'Nature', 'Experiences'] as const;
+const categories = ['All', 'Kabanas', 'Kitchen', 'Nature', 'Experiences'] as const;
 type Category = (typeof categories)[number];
 
 const allImages: { src: string; title: string; category: Category; aspect: string }[] = [
@@ -15,9 +15,9 @@ const allImages: { src: string; title: string; category: Category; aspect: strin
   { src: 'https://images.unsplash.com/photo-1519449556851-5720b33024e7?w=800&h=600&fit=crop', title: 'Kabana 02 — The Creek', category: 'Kabanas', aspect: 'aspect-[4/3]' },
   { src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=900&fit=crop', title: 'Canopy King Suite', category: 'Kabanas', aspect: 'aspect-[8/9]' },
   { src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&h=600&fit=crop', title: 'Morning Veranda', category: 'Kabanas', aspect: 'aspect-[4/3]' },
-  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop', title: 'Private Balcony Dining', category: 'Dining', aspect: 'aspect-[4/3]' },
-  { src: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=700&fit=crop', title: 'In-Villa Chef Service', category: 'Dining', aspect: 'aspect-[8/7]' },
-  { src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop', title: 'Sunset Cocktail Hour', category: 'Dining', aspect: 'aspect-[8/5]' },
+  { src: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=600&fit=crop', title: 'Guest Kitchen', category: 'Kitchen', aspect: 'aspect-[4/3]' },
+  { src: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=700&fit=crop', title: 'Cooking at the Villa', category: 'Kitchen', aspect: 'aspect-[8/7]' },
+  { src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop', title: 'Evening on the Deck', category: 'Kitchen', aspect: 'aspect-[8/5]' },
   { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop', title: 'Misty Highlands', category: 'Nature', aspect: 'aspect-[8/5]' },
   { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop', title: 'Rainforest Canopy', category: 'Nature', aspect: 'aspect-[4/3]' },
   { src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=800&h=900&fit=crop', title: 'Canopy at Dusk', category: 'Nature', aspect: 'aspect-[8/9]' },
@@ -30,7 +30,7 @@ const allImages: { src: string; title: string; category: Category; aspect: strin
 const videos = [
   { thumbnail: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=450&fit=crop', title: 'The Woods Tour', duration: '2:56' },
   { thumbnail: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=450&fit=crop', title: 'Highlands Escape', duration: '3:41' },
-  { thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=450&fit=crop', title: 'Dining at Serendib', duration: '2:12' },
+  { thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=450&fit=crop', title: 'A Morning in the Kitchen', duration: '2:12' },
 ];
 
 const fadeUp: Variants = {

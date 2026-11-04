@@ -32,7 +32,7 @@ const experiences = [
     name: 'Local food & culture',
     image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=600&fit=crop',
     category: 'Culture',
-    description: 'Discover Sri Lankan flavours and local traditions. Ask what cultural visits or food experiences can be arranged during your dates.',
+    description: 'Discover Sri Lankan flavours at local markets and eateries, then try cooking them yourself in the guest kitchen.',
   },
   {
     name: 'Waterfalls & nature',

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "secluded tropical escape",
     "sri lanka luxury accommodation",
     "honeymoon villa sri lanka",
-    "private dining sri lanka",
+    "self catering villa sri lanka",
   ],
   authors: [{ name: SITE_NAME }],
   openGraph: {

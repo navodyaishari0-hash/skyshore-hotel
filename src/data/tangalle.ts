@@ -169,8 +169,8 @@ export const tangalleExperiences: TangalleExperience[] = [
   {
     id: 'sri-lankan-food-experience',
     title: 'Sri Lankan Food Experience',
-    category: 'Dining',
-    description: 'Breakfasts, seafood and slow island flavours shaped by local produce.',
+    category: 'Food',
+    description: 'Local markets, ingredients and cooking ideas for guests using the villa kitchen.',
     image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=900&h=700&fit=crop',
     enabled: true,
   },
@@ -195,32 +195,32 @@ export const tangalleExperiences: TangalleExperience[] = [
 export const tasteSriLanka: FoodExperience[] = [
   {
     title: 'Sri Lankan Breakfast',
-    description: 'Warm local breakfasts, fresh fruit and comforting island staples.',
+    description: 'Make a local-style breakfast with hoppers, fresh fruit and tea in the guest kitchen.',
     image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=900&h=700&fit=crop',
   },
   {
     title: 'Hoppers & String Hoppers',
-    description: 'Soft, savoury favourites served with curries, sambol and local sides.',
+    description: 'Buy hoppers or the batter locally and serve them with curries and sambol you prepare.',
     image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=900&h=700&fit=crop',
   },
   {
     title: 'Coconut Sambol',
-    description: 'Bright and fragrant coconut flavours that define Sri Lankan coastal dining.',
+    description: 'A simple side to make yourself with fresh coconut, chilli, lime and salt.',
     image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=900&h=700&fit=crop',
   },
   {
     title: 'Fresh Seafood',
-    description: 'Sun-warmed seafood, grilled catches and island-inspired coastal meals.',
+    description: "Pick up the day's catch in Tangalle and cook it in the guest kitchen.",
     image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=900&h=700&fit=crop',
   },
   {
     title: 'Ceylon Tea',
-    description: 'Slow sips of fragrant Ceylon tea for gentle island afternoons.',
+    description: 'Brew a pot of Ceylon tea whenever you like — the kitchen is yours to use.',
     image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&h=700&fit=crop',
   },
   {
     title: 'Tropical Fruit',
-    description: 'Sweet fruit, local juices and seasonal island produce at every turn.',
+    description: 'Buy seasonal fruit locally and enjoy it on the deck or at the kitchen table.',
     image: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=900&h=700&fit=crop',
   },
 ];

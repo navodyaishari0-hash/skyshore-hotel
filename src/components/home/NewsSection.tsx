@@ -31,7 +31,7 @@ const newsPosts = [
     id: 'news-3',
     title: 'A Taste of Serendib: The Flavours of Sri Lankan Cuisine',
     excerpt:
-      'Hoppers, rice and curry, fresh seafood — journey through the aromatic and vibrant culinary traditions that define our island home.',
+      "Hoppers, rice and curry, fresh seafood — explore the island's culinary traditions and try cooking them yourself in the guest kitchen.",
     image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=500&fit=crop',
     category: 'Culinary',
     date: '2026-06-20',

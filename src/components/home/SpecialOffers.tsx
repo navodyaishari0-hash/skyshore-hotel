@@ -9,7 +9,7 @@ const offers = [
     id: 1,
     title: 'The Serendib Escape',
     description:
-      'Two nights in Kabana of your choice with candlelit private dining under the stars, a guided jungle dawn walk, and a gourmet breakfast served on your deck each morning.',
+      'Two nights in the Kabana of your choice with a welcome hamper of local ingredients, a guided jungle dawn walk, and full use of the guest kitchen to cook your own meals.',
     discount: 20,
     originalPrice: 154000,
     price: 123200,
@@ -20,7 +20,7 @@ const offers = [
     id: 2,
     title: 'Honeymoon in the Trees',
     description:
-      'A three-night romantic celebration in Kabana 01 — The Woods, with private in-villa dining, a dreamy candlelit bath, champagne on arrival, and a secluded beach picnic for two.',
+      'A three-night romantic celebration in Kabana 01 — The Woods, with a bottle of champagne on arrival, full use of the guest kitchen, a dreamy candlelit bath, and a secluded beach afternoon for two.',
     discount: 25,
     originalPrice: 224000,
     price: 168000,
@@ -31,7 +31,7 @@ const offers = [
     id: 3,
     title: 'The Island Immersion',
     description:
-      'Four nights of discovery — split your stay between both kabanas, with a river safari, spice garden tour, and a traditional Sri Lankan cooking class included.',
+      'Four nights of discovery — split your stay between both kabanas, with a river safari, spice garden tour, and a local market trip to stock the guest kitchen.',
     discount: 15,
     originalPrice: 295000,
     price: 250750,

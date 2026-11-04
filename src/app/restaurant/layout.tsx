@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/site';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Dining',
+  title: 'Kitchen & Self-Catering',
   description:
-    'Discover private dining at Skyshore with Sri Lankan flavours, fresh seafood and tropical garden settings in Tangalle.',
+    'Skyshore does not run a restaurant or serve meals. Guests have use of a kitchen to cook their own meals during their stay in Tangalle.',
   path: '/restaurant',
 });
 

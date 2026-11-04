@@ -13,8 +13,8 @@ export const amenities: Amenity[] = [
   { id: "amenity-3", name: "Air Conditioning", icon: "Snowflake", category: "room" },
   { id: "amenity-4", name: "Open-Air Bathroom", icon: "Flower2", category: "room" },
   { id: "amenity-5", name: "King Bed", icon: "Bed", category: "room" },
-  { id: "amenity-6", name: "Private Dining", icon: "UtensilsCrossed", category: "dining" },
-  { id: "amenity-7", name: "Room Service", icon: "ConciergeBell", category: "dining" },
+  { id: "amenity-6", name: "Guest Kitchen", icon: "UtensilsCrossed", category: "dining" },
+  { id: "amenity-7", name: "Kitchen Utensils", icon: "UtensilsCrossed", category: "dining" },
   { id: "amenity-8", name: "Nature Trails", icon: "TreePine", category: "activities" },
   { id: "amenity-9", name: "Airport Transfer", icon: "Car", category: "general" },
   { id: "amenity-10", name: "Concierge", icon: "Bell", category: "general" },
@@ -23,7 +23,7 @@ export const amenities: Amenity[] = [
   { id: "amenity-13", name: "Mini Bar", icon: "Wine", category: "room" },
   { id: "amenity-14", name: "Safe Box", icon: "Lock", category: "room" },
   { id: "amenity-15", name: "Tea & Coffee", icon: "Coffee", category: "room" },
-  { id: "amenity-16", name: "Butler Service", icon: "UserCheck", category: "general" },
+  { id: "amenity-16", name: "Host Support", icon: "Bell", category: "general" },
 ];
 
 export const rooms: Room[] = [
@@ -62,7 +62,7 @@ export const rooms: Room[] = [
       "Organic cotton linens & bathrobes",
       "Complimentary Ceylon tea & coffee station",
       "Private hammock in the trees",
-      "In-villa private dining service",
+      "Access to the guest kitchen",
       "Daily turndown with local botanicals",
     ],
     rating: 4.9,
@@ -78,9 +78,9 @@ export const rooms: Room[] = [
     slug: "kabana-02-the-creek",
     type: "kabana",
     description:
-      "Perched along the gentle curve of a private freshwater creek, Kabana 02 — The Creek offers a serene water-side escape wrapped in the warm embrace of Sri Lankan nature. Built with locally sourced stone and timber, the chalet exudes rustic elegance with modern comforts. The spacious king bed faces a panoramic window overlooking the creek, where butterflies dance over lily pads and kingfishers dive at dawn. Your private stone terrace extends to the water's edge, complete with cushioned loungers and a shaded dining pavilion perfect for candlelit meals under the stars. The bathroom features a deep stone tub positioned beside a louvered wall that opens to a private garden, creating a seamless connection with the natural surroundings. This is where time slows, and every moment becomes a meditation.",
+      "Perched along the gentle curve of a private freshwater creek, Kabana 02 — The Creek offers a serene water-side escape wrapped in the warm embrace of Sri Lankan nature. Built with locally sourced stone and timber, the chalet exudes rustic elegance with modern comforts. The spacious king bed faces a panoramic window overlooking the creek, where butterflies dance over lily pads and kingfishers dive at dawn. Your private stone terrace extends to the water's edge, complete with cushioned loungers and a shaded dining pavilion perfect for meals you cook yourself under the stars. The bathroom features a deep stone tub positioned beside a louvered wall that opens to a private garden, creating a seamless connection with the natural surroundings. This is where time slows, and every moment becomes a meditation.",
     shortDescription:
-      "A serene waterside retreat along a private creek, with stone terrace, garden bathroom, and candlelit dining pavilion.",
+      "A serene waterside retreat along a private creek, with stone terrace, garden bathroom, and a shaded dining pavilion for self-catering meals.",
     price: 320,
     images: [
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&h=800&fit=crop",
@@ -105,7 +105,7 @@ export const rooms: Room[] = [
       "Shaded candlelit dining pavilion",
       "Deep stone soaking tub",
       "Private garden bathroom",
-      "Butler service & in-villa dining",
+      "Guest kitchen access & dining pavilion",
       "Complimentary Ceylon tea selection",
       "Nature trail access from your door",
       "Evening turndown with tropical flowers",
@@ -136,7 +136,7 @@ export const testimonials: Testimonial[] = [
     role: "Anniversary Celebration",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     content:
-      "We chose Kabana 02 for our 10th anniversary and it exceeded every expectation. The private dining pavilion by the creek, illuminated by candlelight with the sound of water — it was the most romantic evening of our lives. The chef prepared a traditional Sri Lankan rice and curry feast that was simply extraordinary.",
+      "We chose Kabana 02 for our 10th anniversary and it exceeded every expectation. The private dining pavilion by the creek, illuminated by candlelight with the sound of water — it was the most romantic evening of our lives. We cooked a traditional Sri Lankan rice and curry feast in the guest kitchen and ate it under the stars.",
     rating: 5,
     date: "2026-02-20",
   },
@@ -166,7 +166,7 @@ export const testimonials: Testimonial[] = [
     role: "Honeymoon Guests",
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
     content:
-      "Our honeymoon at Skyshore was nothing short of magical. The intimacy of having only two kabanas on the property meant we had the entire natural setting practically to ourselves. The private dining, the nature walks, the quiet mornings — we left feeling completely renewed.",
+      "Our honeymoon at Skyshore was nothing short of magical. The intimacy of having only two kabanas on the property meant we had the entire natural setting practically to ourselves. The guest kitchen, the nature walks, the quiet mornings — we left feeling completely renewed.",
     rating: 5,
     date: "2026-05-18",
   },
@@ -188,9 +188,9 @@ export const experiences: Experience[] = [
   },
   {
     id: "exp-2",
-    name: "Traditional Sri Lankan Cooking Class",
+    name: "Traditional Sri Lankan Cooking (Self-Guided)",
     description:
-      "Learn the art of authentic Sri Lankan cuisine with our local chef. Visit the village market to source fresh spices, then return to prepare a feast of rice and curry, hoppers, and pol sambol using recipes passed down through generations.",
+      "Cook authentic Sri Lankan dishes yourself in the guest kitchen. Visit the village market to source fresh spices and ingredients, then prepare rice and curry, hoppers, and pol sambol using recipes passed down through generations.",
     price: 55,
     duration: "4 hours",
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=600&fit=crop",
@@ -242,7 +242,7 @@ export const experiences: Experience[] = [
     id: "exp-6",
     name: "Private Beach Picnic",
     description:
-      "Be escorted to a secluded stretch of golden sand reserved exclusively for you. A gourmet picnic of fresh seafood, tropical fruits, and chilled wine awaits beneath a palm-fringed canopy. Snorkel the reef or simply bask in paradise.",
+      "Be escorted to a secluded stretch of golden sand reserved exclusively for you. Bring a self-prepared picnic of local food, tropical fruits and chilled drinks to enjoy beneath a palm-fringed canopy. Snorkel the reef or simply bask in paradise.",
     price: 85,
     duration: "4 hours",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop",
@@ -285,8 +285,8 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "gal-5",
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200&h=800&fit=crop",
-    title: "Private Dining Experience",
-    category: "Dining",
+    title: "Guest Kitchen",
+    category: "Kitchen",
     type: "image",
   },
   {
@@ -342,18 +342,18 @@ export const galleryItems: GalleryItem[] = [
 
 export const diningHighlights = [
   {
-    title: "Farm-to-Kabana",
-    description: "Every dish is crafted from ingredients sourced within the local region — fresh produce from village farms, wild-caught fish from nearby waters, and spices harvested from our own garden.",
+    title: "Local Ingredients",
+    description: "Buy fresh produce, fish, eggs and spices from shops and markets around Tangalle to cook in the guest kitchen.",
     icon: "Leaf",
   },
   {
-    title: "Private In-Villa Dining",
-    description: "No shared restaurant. Your personal chef prepares each meal in our kitchen and serves it exclusively on your private deck, in the dining pavilion, or wherever you wish.",
+    title: "Guest Kitchen",
+    description: "Skyshore does not have a restaurant or prepare meals. Guests can use the kitchen to cook their own breakfast, lunch and dinner.",
     icon: "UtensilsCrossed",
   },
   {
-    title: "Authentic Sri Lankan Cuisine",
-    description: "From fragrant rice and curry to delicate hoppers and fresh seafood, our menu celebrates the rich culinary heritage of the island with a modern, refined touch.",
+    title: "Sri Lankan Favourites",
+    description: "Try rice and curry, hoppers or coconut sambol using local ingredients and recipes you can make yourself.",
     icon: "ChefHat",
   },
 ];
@@ -373,8 +373,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: "team-2",
     name: "Tharindu Silva",
-    role: "Executive Chef",
-    bio: "Chef Tharindu grew up in the Sri Lankan highlands, learning the art of rice and curry from his grandmother. He combines time-honored local recipes with refined technique to craft unforgettable private dining experiences.",
+    role: "Guest Support",
+    bio: "Tharindu helps guests settle in and can point you to local markets, ingredients and the guest kitchen facilities during your stay.",
     image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=500&fit=crop&crop=face",
     social: {
       instagram: "https://instagram.com",
@@ -394,7 +394,7 @@ export const teamMembers: TeamMember[] = [
     id: "team-4",
     name: "Nilmini Gunawardena",
     role: "Guest Experience Manager",
-    bio: "Nilmini's attention to detail and genuine warmth ensure that every aspect of your stay is seamless. From arranging private dining under the stars to curating bespoke experiences, she anticipates needs before they're spoken.",
+    bio: "Nilmini's attention to detail and genuine warmth ensure that every aspect of your stay is seamless. From helping you find local markets to settling into the guest kitchen, she anticipates needs before they're spoken.",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face",
     social: {
       instagram: "https://instagram.com",

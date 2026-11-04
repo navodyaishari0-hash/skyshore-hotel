@@ -10,10 +10,10 @@ export default function TasteSriLanka() {
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#D7C49A]">Taste Sri Lanka</p>
-            <h2 className="font-playfair text-4xl font-medium md:text-5xl">Flavours shaped by the coast, the garden and the island.</h2>
+            <h2 className="font-playfair text-4xl font-medium md:text-5xl">Local flavours, cooked your way.</h2>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-white/70">
-            From village breakfasts to fresh seafood, local curries and tropical fruit, Sri Lankan dining is a key part of the Tangalle experience.
+            Sri Lankan food is part of the Tangalle experience. With a guest kitchen at Skyshore, you can buy local ingredients and cook island dishes yourself.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export default function TasteSriLanka() {
 
         <div className="mt-12 text-center">
           <Link href="/restaurant" className="inline-flex items-center gap-3 rounded-full border border-[#D7C49A] px-6 py-3 text-sm font-semibold text-[#D7C49A] transition-colors hover:bg-[#D7C49A] hover:text-[#18392F]">
-            Ask about dining options <ArrowRight size={16} />
+            See the guest kitchen <ArrowRight size={16} />
           </Link>
         </div>
       </div>

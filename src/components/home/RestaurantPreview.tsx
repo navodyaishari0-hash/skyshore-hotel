@@ -3,26 +3,26 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Leaf, UtensilsCrossed, Coffee } from 'lucide-react';
+import { ArrowRight, ChefHat, ShoppingBasket, Coffee } from 'lucide-react';
 
 const highlights = [
   {
-    icon: Leaf,
-    title: 'Sri Lankan flavours',
+    icon: ChefHat,
+    title: 'A kitchen for guests',
     description:
-      'Ask the host which Sri Lankan dishes can be arranged during your stay.',
+      'Skyshore does not prepare or serve meals. Guests can use the kitchen to cook their own breakfast, lunch and dinner.',
   },
   {
-    icon: UtensilsCrossed,
-    title: 'Fresh island ingredients',
+    icon: ShoppingBasket,
+    title: 'Local ingredients',
     description:
-      'Share your interest in tropical fruit, seafood, breakfast and local produce.',
+      'Buy fresh fruit, vegetables, fish, eggs and spices from shops and markets around Tangalle.',
   },
   {
     icon: Coffee,
-    title: 'Tea, coffee & more',
+    title: 'Tea & coffee your way',
     description:
-      'Menus, dining options and dietary requests are confirmed directly with the host.',
+      'Make a hot drink whenever you like. Ask the host what equipment is provided in the kitchen.',
   },
 ];
 
@@ -38,19 +38,21 @@ export default function DiningConcept() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="mb-4 inline-block text-sm font-medium uppercase tracking-[0.2em] text-primary">
-              A taste of the island
+              Self-catering kitchen
             </span>
             <h2 className="mb-6 text-3xl font-bold font-playfair text-luxury md:text-4xl lg:text-5xl">
-              Sri Lankan dining,{' '}
-              <span className="italic text-forest">on your terms.</span>
+              Cook your own meals,{' '}
+              <span className="italic text-forest">on island time.</span>
             </h2>
             <p className="mb-6 text-base leading-relaxed text-gray-500">
-              Wondering what dining is available? Ask about traditional dishes,
-              seasonal ingredients, seafood, breakfast, tea and coffee.
+              Skyshore does not have a restaurant and does not prepare food for
+              guests. If you would like to cook, a kitchen is available for you
+              to use during your stay.
             </p>
             <p className="mb-8 text-base leading-relaxed text-gray-500">
-              Menus, service arrangements, prices and dietary options are
-              confirmed with the host for your dates.
+              Shop for fresh produce and seafood in Tangalle, then make
+              breakfast, lunch or dinner whenever it suits you. Ask the host
+              about kitchen access and what equipment is provided.
             </p>
 
             <div className="mb-8 space-y-4">
@@ -77,7 +79,7 @@ export default function DiningConcept() {
             </div>
 
             <Link href="/restaurant" className="inline-flex min-h-12 items-center gap-3 bg-secondary px-6 py-3 text-sm font-semibold text-ivory transition-colors hover:bg-forest">
-              Plan a dining enquiry <ArrowRight size={16} />
+              See the guest kitchen <ArrowRight size={16} />
             </Link>
           </motion.div>
 
@@ -91,7 +93,7 @@ export default function DiningConcept() {
             <div className="relative h-[420px] overflow-hidden sm:h-[500px]">
               <Image
                 src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=600&fit=crop"
-                alt="Sri Lankan-inspired ingredients and a prepared meal"
+                alt="A kitchen available for guests to cook their own meals"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

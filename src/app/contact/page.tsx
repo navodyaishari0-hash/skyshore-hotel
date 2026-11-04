@@ -33,7 +33,7 @@ const contactInfo = [
 const subjectOptions = [
   { label: 'General Inquiry', value: 'general' },
   { label: 'Villa stay', value: 'reservation' },
-  { label: 'Dining enquiry', value: 'dining' },
+  { label: 'Kitchen & self-catering', value: 'kitchen' },
   { label: 'Experiences & tours', value: 'experiences' },
   { label: 'Partnership', value: 'partnership' },
   { label: 'Feedback', value: 'feedback' },
@@ -43,8 +43,8 @@ const subjectOptions = [
 const faqItems = [
   { title: 'What are the check-in and check-out times?', content: 'Arrival and departure times are confirmed with the host when your stay is arranged.' },
   { title: 'Can you arrange an airport transfer?', content: 'Transfer availability, pickup details and journey time need to be confirmed with the host. Send your arrival information and we can check options.' },
-  { title: 'What dining options are available?', content: 'Dining service, menu and availability are confirmed directly with the host. Ask about Sri Lankan dishes, fresh produce, seafood, breakfast, tea and coffee.' },
-  { title: 'Can dietary requirements be accommodated?', content: 'Please share dietary requirements before your stay. The host can confirm which options are available.' },
+  { title: 'Is there a restaurant or meal service?', content: 'No. Skyshore does not prepare or serve meals and there is no restaurant on site. Guests have use of a kitchen to cook for themselves; ask the host about access and what equipment is provided.' },
+  { title: 'Can I cook my own meals?', content: 'Yes. A kitchen is available for guests to use during their stay. Please ask the host about access, equipment and where to buy ingredients nearby.' },
   { title: 'Can children stay at Skyshore?', content: 'Guest capacity and age-related arrangements are confirmed for each villa. Contact us before booking with your group details.' },
   { title: 'Where is Skyshore located?', content: 'Skyshore is in Tangalle, on the southern coast of Sri Lanka. The exact address and directions are shared when your stay is confirmed.' },
   { title: 'Are wellness services available?', content: 'Wellness services have not been confirmed. Contact the host to ask about current arrangements.' },
