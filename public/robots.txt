@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /skyshore-hotel/account/
+Disallow: /skyshore-hotel/admin/
+Disallow: /skyshore-hotel/auth/
+Disallow: /skyshore-hotel/login/
+
+Sitemap: https://navodyaishari0-hash.github.io/skyshore-hotel/sitemap.xml
