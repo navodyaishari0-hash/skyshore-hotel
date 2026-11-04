@@ -5,14 +5,15 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 import BookingWidget from '@/components/home/BookingWidget';
+import { assetUrl } from '@/lib/site';
 
 export default function HeroSection() {
   return (
     <>
       <section className="relative isolate flex min-h-[690px] h-[92svh] max-h-[980px] items-center overflow-hidden bg-secondary">
         <Image
-          src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=2200&h=1400&fit=crop"
-          alt="A tropical villa retreat surrounded by lush Sri Lankan greenery"
+          src={assetUrl('/images/hero/skyshore-hero.jpg')}
+          alt="Skyshore villa retreat in Tangalle, Sri Lanka"
           fill
           priority
           sizes="100vw"

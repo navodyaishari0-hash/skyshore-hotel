@@ -2,6 +2,13 @@ import type { Metadata } from 'next';
 
 export const SITE_URL = 'https://navodyaishari0-hash.github.io/skyshore-hotel';
 
+export const BASE_PATH = '/skyshore-hotel';
+
+/** Prefix a public-folder asset with the GitHub Pages base path. */
+export function assetUrl(path: string) {
+  return `${BASE_PATH}${path.startsWith('/') ? path : `/${path}`}`;
+}
+
 export const SITE_NAME = 'Skyshore';
 
 export const SITE_DESCRIPTION =
